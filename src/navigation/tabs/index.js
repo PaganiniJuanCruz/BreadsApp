@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Cart from '../../screens/Cart';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StyleSheet } from 'react-native';
-import AuthNavigathor from '../stacks/Auth';
+import AuthNavigathor from '../stacks/auth';
 
 const Tab = createBottomTabNavigator();
 
