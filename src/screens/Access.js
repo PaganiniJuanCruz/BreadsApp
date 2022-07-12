@@ -3,14 +3,12 @@ import { TextInput, View, StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { KeyboardAvoidingView } from "react-native";
 import { COLORS } from "../data/colors";
-import { signUp } from "../../app/api.js";
+import { signIn, signUp } from "../../app/api.js";
 
-const Register = ({navigation}) => {
+const Register = () => {
     
     const title = "Register",
-        message = "Do you have an account?",
-        messageAction = "Get Into",
-        messageTarget = "Log in"
+        message = "Do you have an account?"
 
         const [email, setEmail] = useState();
         const [password, setPassword] = useState();
@@ -21,13 +19,15 @@ const Register = ({navigation}) => {
             style={styles.screen}
         >
             <View style={styles.container}>
+                <Text>Log in</Text>
+                
                 <Text style={styles.title}>{ title }</Text>
                 <Text style={styles.label}>Email</Text>
                 <TextInput style={styles.input}
                 keyboardType="email-address"
                 autoCapitalize="none"
-                placeholder="Write your email..."
                 onChangeText={(text) => setEmail(text)}
+                placeholder="Write your email..."
                 />
                 <br />
                 <Text style={styles.label}>Password</Text>
@@ -40,18 +40,11 @@ const Register = ({navigation}) => {
                 <br />
                 <View style={styles.prompt}>
                     <Text style={styles.promptMessage}>{message}</Text>
-                    <TouchableOpacity onPress={async() =>{
-                        await signUp(email, password)
-                        navigation.navigate("Login");
-                    } }>
+                    <TouchableOpacity onPress={async() =>{{
+                        await signIn(email, password)}
+                    }}>
                     <br />
-                    <Text style={styles.prompButton}>{messageAction}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={async() =>{
-                        navigation.navigate("Login");
-                    } }>
-                    <br />
-                        <Text style={styles.prompButton}>Go to Login</Text>
+                    <Text style={styles.prompButton}>Log in</Text>
                     </TouchableOpacity>
                 </View>
             </View>    

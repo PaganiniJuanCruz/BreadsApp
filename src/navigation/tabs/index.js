@@ -3,29 +3,40 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Cart from '../../screens/Cart';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StyleSheet } from 'react-native';
-import AuthNavigathor from '../stacks/auth';
+import ShopNavigator from '../stacks/index'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { logout } from '../../../app/api';
 
-const Tab = createBottomTabNavigator();
+const BottomTabs = createBottomTabNavigator();
 
-export default () => (
-    <Tab.Navigator>
-        <Tab.Screen name="Shop" component={ShopNavigator}
+const BTabs = () => (
+    <BottomTabs.Navigator>
+        <BottomTabs.Screen name="Shop" component={ShopNavigator}
             options={{
                 headerShown: false,
                 tabBarShowLabel: false,
                 tabBarStyle: styles.tabBar,
+                headerRight: (props) => (
+                    <TouchableOpacity onPress={logout}>
+                        <Text>
+                            Log out
+                        </Text>
+                    </TouchableOpacity>
+                ),
                 tabBarIcon: () => <Ionicons name="md-home" size={30} color="black" /> 
             }}
         />
-        <Tab.Screen name="Cart" component={Cart} 
+        <BottomTabs.Screen name="Cart" component={Cart} 
             options={{
                 tabBarShowLabel: false,
                 tabBarStyle: styles.tabBar,
                 tabBarIcon: () => <Ionicons name="md-cart" size={30} color="black" /> 
             }}
             />
-    </Tab.Navigator>
+    </BottomTabs.Navigator>
 );
+
+export default BTabs;
 
 const styles = StyleSheet.create({
     tabBar: {

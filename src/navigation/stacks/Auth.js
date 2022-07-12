@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Register from '../../screens/Register';
+import Access from '../../screens/Access';
 import { COLORS } from '../../data/colors';
 
 
@@ -17,6 +18,7 @@ export default () => (
         }}
     >
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Access} />
 
     </Stack.Navigator>
 );

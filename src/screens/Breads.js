@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { BREADS } from '../data/breads';
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
