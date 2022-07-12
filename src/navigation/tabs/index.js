@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 export default () => (
     <Tab.Navigator>
-        <Tab.Screen name="Shop" component={AuthNavigathor}
+        <Tab.Screen name="Shop" component={ShopNavigator}
             options={{
                 headerShown: false,
                 tabBarShowLabel: false,
