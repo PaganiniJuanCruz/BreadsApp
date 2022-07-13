@@ -1,11 +1,12 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const GridItem = ({ item, navigation }) => {
     return(
         <View style={ styles.gridItem }>
-            <TouchableOpacity style={{...styles.container, backgroundColor: item.color}} onPress={() => navigation.navigate('Breads')}>{ item.title }
+            <TouchableOpacity style={{...styles.container, backgroundColor: item.color}} onPress={() => navigation.navigate('Breads')}>
+                <Text>{ item.title }</Text>
             </TouchableOpacity>
         </View>
     )
@@ -18,7 +19,8 @@ const styles = StyleSheet.create({
         flex: 1,
         borderRadius: 6,
         margin: 15,
-        height: 150
+        height: 150,
+        justifyContent: "center"
     },
 
     container: {

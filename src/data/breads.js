@@ -3,7 +3,7 @@ export const BREADS = [
         id: 1,
         category: 1,
         name: "Pan Baguette",
-        description: "Clásico Pan Francés",
+        description: "  ",
         weight: "350gr",
         price: 1200
     },
